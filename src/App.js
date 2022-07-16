@@ -1,32 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Search from "./components/search/search";
+import CurrentWeather from "./components/current-weather/current-weather";
+import Forecast from "./components/forecast/forecast";
+import { WEATHER_API_URL, WEATHER_API_KEY } from "./api";
+import "./App.css";
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+function App() {
+  const [currentWeather, setCurrentWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
 
-// export default App;
-export default function App() {
+  const handleOnSearchChange = (searchData) => {
+    const [lat, lon] = searchData.value.split(" ");
+
+    const currentWeatherFetch = fetch(
+      `${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+    );
+    const forecastFetch = fetch(
+      `${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
+    );
+
+    Promise.all([currentWeatherFetch, forecastFetch])
+      .then(async (response) => {
+        const weatherResponse = await response[0].json();
+        const forcastResponse = await response[1].json();
+
+        setCurrentWeather({ city: searchData.label, ...weatherResponse });
+        setForecast({ city: searchData.label, ...forcastResponse });
+      })
+      .catch(console.log);
+  };
+
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="container flex flex-col items-center justify-center w-full h-full mx-auto">
+      <Search onSearchChange={handleOnSearchChange} />
+      {currentWeather && <CurrentWeather data={currentWeather} />}
+      {forecast && <Forecast data={forecast} />}
+    </div>
+  );
 }
+
+export default App;
