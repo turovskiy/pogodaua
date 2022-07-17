@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <div className="container flex flex-col items-center justify-center w-full h-full mx-auto">
-          <Search onSearchChange={handleOnSearchChange} />
+          {/* <Search onSearchChange={handleOnSearchChange} /> */}
           {currentWeather && <CurrentWeather data={currentWeather} />}
           {forecast && <Forecast data={forecast} />}
           <MadeWithLove/>
