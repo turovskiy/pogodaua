@@ -5,7 +5,7 @@ import { geoApiOptions, GEO_API_URL } from "../../api";
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
-  const loadOptions = (inputValue = "Kotsiubynske") => {
+  const loadOptions = (inputValue ) => {
     return fetch(
       // `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
       // countries/UA/regions/${inputValue}/cities?
@@ -34,7 +34,7 @@ const Search = ({ onSearchChange }) => {
 
   return (
     <AsyncPaginate
-      placeholder="Search for city"
+      placeholder="Шукакай своє місто"
       debounceTimeout={600}
       className={"border py-2 px-3 text-grey-darkest w-1/2 mt-4"}
       value={search}
