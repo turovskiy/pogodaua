@@ -6,6 +6,8 @@ const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
   const loadOptions = (inputValue ) => {
+    let irpin = "Irpin"
+    inputValue =irpin
     return fetch(
       // `${GEO_API_URL}/cities?minPopulation=100000&namePrefix=${inputValue}`,
       // countries/UA/regions/${inputValue}/cities?
