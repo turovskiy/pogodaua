@@ -14,10 +14,9 @@ import React from "react";
                     <div class="relative bg-white px-4 py-10 shadow-lg sm:rounded-3xl sm:p-20">
                         <div class="mx-auto max-w-md">
                             <div>
-                                 {/* <img src="printec_logo_grey.svg" alt="Printecbot" /> */}
-                                 
+                                 {/*  */}
                             </div>
-                            {/* <Controler />*/}
+                 {/*  */}
                         </div>
                     </div>
 
