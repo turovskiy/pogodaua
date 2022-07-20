@@ -26,7 +26,6 @@ const Forecast = ({ data }) => {
                   <div className="flex flex-row items-center space-x-4">
                   <img src={`icons/${item.weather[0].icon}.png`} className="w-20 h-20" alt="weather" />
                   <label className="day">{forecastDays[idx]}</label>
-                  {/* <label className="description">{item.weather[0].description}</label> */}
                   <label className="min-max">{Math.round(item.main.temp_max)}°C / {Math.round(item.main.temp_min)}°C</label>
                   </div>
                 </div>

@@ -6,7 +6,6 @@ const CurrentWeather = ({ data }) => {
       <div className="">
         <div>
           <p className="city text-center text-base font-bold ">{data.city}</p>
-          {/* <p className="weather-description">{data.weather[0].description}</p> */}
         </div>
         <img
           alt="weather"
