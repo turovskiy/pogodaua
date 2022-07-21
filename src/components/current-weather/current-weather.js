@@ -1,12 +1,12 @@
 import React from "react";
 
 const CurrentWeather = ({ data }) => {
+  console.log(`CurrentWeather-data->${data}`)
   return (
     <div className="flex p-6 border-2 shadow-2xl weather top rounded-2xl border-gray-50 ">
       <div className="">
         <div>
-          <p className="city text-center text-base font-bold ">{data.city}</p>
-          {/* <p className="weather-description">{data.weather[0].description}</p> */}
+          <p className="text-base font-bold text-center city ">{data.city}</p>
         </div>
         <img
           alt="weather"

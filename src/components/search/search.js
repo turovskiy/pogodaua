@@ -3,7 +3,7 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import { geoApiOptions, GEO_API_URL } from "../../api";
 
 const Search = ({ onSearchChange }) => {
-  const [search, setSearch] = useState("Irpin");
+  const [search, setSearch] = useState(null);
 
   const loadOptions = (inputValue ) => {
     return fetch(
@@ -12,7 +12,7 @@ const Search = ({ onSearchChange }) => {
     )
       .then((response) => response.json())
       .then((response) => {
-        console.log(response.data)
+        console.log(`Search->${response.data}`)
         return {
           options: response.data.map((city) => {
             return {

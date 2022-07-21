@@ -11,12 +11,14 @@ import {
 const WEEK_DAYS = ['Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П\'ятниця', 'Субота', 'Неділя'];
 
 const Forecast = ({ data }) => {
+  console.log(`Forecast-data->${data}`)
+
   const dayInAWeek = new Date().getDay();
   const forecastDays = WEEK_DAYS.slice(dayInAWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInAWeek));
   
   return (
     <>
-      <label className="font-bold text-center text-gray-600 title">Погода на сьогодні :</label>
+      <label className="font-bold text-center text-gray-600 title">Погода на наступних 7 днів :</label>
       <Accordion allowZeroExpanded>
         {data.list.splice(0, 7).map((item, idx) => (
           <AccordionItem key={idx}>
@@ -26,7 +28,6 @@ const Forecast = ({ data }) => {
                   <div className="flex flex-row items-center space-x-4">
                   <img src={`icons/${item.weather[0].icon}.png`} className="w-20 h-20" alt="weather" />
                   <label className="day">{forecastDays[idx]}</label>
-                  {/* <label className="description">{item.weather[0].description}</label> */}
                   <label className="min-max">{Math.round(item.main.temp_max)}°C / {Math.round(item.main.temp_min)}°C</label>
                   </div>
                 </div>
