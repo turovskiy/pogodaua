@@ -33,7 +33,7 @@ const Search = ({ onSearchChange }) => {
     <AsyncPaginate
       placeholder="Шукакай своє місто"
       debounceTimeout={600}
-      className={"border py-2 px-3 text-grey-darkest w-1/2 mt-4"}
+      className={"border py-2 px-3 text-grey-darkest w-full mt-4"}
       value={search}
       onChange={handleOnChange}
       loadOptions={loadOptions}

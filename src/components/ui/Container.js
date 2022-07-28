@@ -1,6 +1,6 @@
 import React from "react";
 
- const Container = () => {
+ const Container = (prop1, prop2) => {
      return(
           <>
             <div class="flex min-h-screen flex-col justify-center bg-gray-50 py-6 sm:py-12">
@@ -14,9 +14,9 @@ import React from "react";
                     <div class="relative bg-white px-4 py-10 shadow-lg sm:rounded-3xl sm:p-20">
                         <div class="mx-auto max-w-md">
                             <div>
-                                 {/*  */}
+                                 `${prop1}`
                             </div>
-                 {/*  */}
+                                 `${prop2}`
                         </div>
                     </div>
 

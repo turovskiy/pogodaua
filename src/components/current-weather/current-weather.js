@@ -5,7 +5,7 @@ const CurrentWeather = ({ data }) => {
   return (
     <div className="flex p-6 border-2 shadow-2xl weather top rounded-2xl border-gray-50 ">
       <div className="">
-        <div>
+        <div className="">
           <p className="text-base font-bold text-center city ">{data.city}</p>
         </div>
         <img
